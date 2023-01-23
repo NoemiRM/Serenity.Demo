@@ -1,0 +1,9 @@
+{
+  "status": true,
+  "code": 10000,
+  "message": "Proceso ejecutado con éxito.",
+  "body": {
+    "accessToken": "token",
+    "tokenType": "Bearer"
+  }
+}
