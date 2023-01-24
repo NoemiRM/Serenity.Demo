@@ -1,11 +1,16 @@
 package serenity.pageobject.pages;
 
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.ListOfWebElementFacades;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.ui.Select;
 import net.thucydides.core.pages.PageObject;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by NoemiRM on 23/01/23
@@ -139,8 +144,10 @@ public class ShoppingCartPage extends PageObject {
     }
 
     public void select_cash_payment() {
-        optionCash.waitUntilClickable();
-        optionCash.click();
+        optionCash.waitUntilEnabled();
+        withTimeoutOf(Duration.ofSeconds(10))
+                .find(By.xpath("//div[contains(@class,'payment-method-list')][1]//a"))
+                .click();
 
     }
 
