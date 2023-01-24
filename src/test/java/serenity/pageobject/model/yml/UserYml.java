@@ -1,24 +1,22 @@
 package serenity.pageobject.model.yml;
 
 /**
- * Created by NoemiRM on 16/01/23
+ * Created by NoemiRM on 23/01/23
  */
 public class UserYml {
     private String name;
     private String lastname;
-    private String type_doc;
-    private String doc_number;
-    private String cellphone;
+    private String email;
+    private String password;
 
     public UserYml() {
     }
 
-    public UserYml(String name, String lastnameUser, String type_doc, String doc_number, String cellphone) {
+    public UserYml(String name, String lastname, String email, String password) {
         this.name = name;
-        this.lastname = lastnameUser;
-        this.type_doc = type_doc;
-        this.doc_number = doc_number;
-        this.cellphone = cellphone;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
     }
 
     public String getName() {
@@ -37,38 +35,29 @@ public class UserYml {
         this.lastname = lastname;
     }
 
-    public String getType_doc() {
-        return type_doc;
+    public String getEmail() {
+        return email;
     }
 
-    public void setType_doc(String type_doc) {
-        this.type_doc = type_doc;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getDoc_number() {
-        return doc_number;
+    public String getPassword() {
+        return password;
     }
 
-    public void setDoc_number(String doc_number) {
-        this.doc_number = doc_number;
-    }
-
-    public String getCellphone() {
-        return cellphone;
-    }
-
-    public void setCellphone(String cellphone) {
-        this.cellphone = cellphone;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
     public String toString() {
         return "UserYml{" +
-                "namer='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", type_doc='" + type_doc + '\'' +
-                ", doc_number='" + doc_number + '\'' +
-                ", cellphone='" + cellphone + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

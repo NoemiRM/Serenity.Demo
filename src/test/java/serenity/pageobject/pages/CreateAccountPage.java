@@ -2,26 +2,31 @@ package serenity.pageobject.pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 
 /**
  * Created by NoemiRM on 22/01/23
  */
 
-public class LoginPage extends PageObject {
+public class CreateAccountPage extends PageObject {
+    @FindBy(css = "input[name='full_name']")
+    private WebElementFacade inputFullName;
 
     @FindBy(css = "input[name='email']")
     private WebElementFacade inputEmail;
 
-    @FindBy(css = "input[name=password]")
+    @FindBy(css = "input[name='password']")
     private WebElementFacade inputPassword;
 
     @FindBy(css = "div.form-submit-button>button")
-    private WebElementFacade btnSignIn;
+    private WebElementFacade btnSignUp;
 
-    @FindBy(css = "div.login-form-inner>div>a")
-    private WebElementFacade linkNewAccount;
+    public void enter_full_name(String fullName){
+        inputFullName.click();
+        inputFullName.clear();
+        inputFullName.sendKeys(fullName);
+
+    }
 
     public void enter_email(String email){
         inputEmail.click();
@@ -37,12 +42,8 @@ public class LoginPage extends PageObject {
 
     }
 
-    public void click_submit(){
-        btnSignIn.click();
-    }
-
-    public void click_create_account(){
-        linkNewAccount.click();
+    public void sign_up_information(){
+        btnSignUp.click();
     }
 
 }
