@@ -1,9 +1,11 @@
 package serenity.pageobject.pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.ListOfWebElementFacades;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.ui.Select;
 import net.thucydides.core.pages.PageObject;
+import org.openqa.selenium.WebElement;
 
 /**
  * Created by NoemiRM on 23/01/23
@@ -168,6 +170,24 @@ public class ShoppingCartPage extends PageObject {
     public String get_shipping_telephone(){
         divTelephone.waitUntilEnabled();
         return divTelephone.getText();
+
+    }
+
+    public ListOfWebElementFacades get_all_names_products(){
+        return findAll("//div[@class='product-column']/div/span");
+
+    }
+
+    public boolean is_name_product_presented(String nameProduct){
+        boolean value = false;
+        for (WebElement element: get_all_names_products()) {
+            if(element.getText().equals(nameProduct)){
+                value = true;
+                break;
+            }
+        }
+        return value;
+
     }
 
 }

@@ -29,7 +29,7 @@ public class ShoppingCartSteps {
     public void userEntersInformationToShippingAddress(DataTable dataTable) {
         userGoesToViewCartPageThroughPopup();
         userGoesToCheckoutPage();
-        Map<String,String> detailShipping = dataTable.asMap(String.class, String.class);
+        Map<String, String> detailShipping = dataTable.asMap(String.class, String.class);
         shoppingCartPage.enter_full_name(detailShipping.get("fullName"));
         shoppingCartPage.enter_telephone(detailShipping.get("telephone"));
         shoppingCartPage.enter_address(detailShipping.get("address"));
@@ -64,11 +64,18 @@ public class ShoppingCartSteps {
 
     @Then("everShop page shows information about user's order")
     public void evershopPageShowsInformationAboutUserSOrder(DataTable dataTable) {
-        Map<String,String> dataShopping = dataTable.asMap(String.class, String.class);
+        Map<String, String> dataShopping = dataTable.asMap(String.class, String.class);
+        String[] ArrayProducts = dataShopping.get("products").split(",");
+
         shoppingCartPage.get_shipping_address();
-        assertThat(shoppingCartPage.get_shipping_address(),equalTo(dataShopping.get("address")));
-        assertThat(shoppingCartPage.get_shipping_province_country(),equalTo(dataShopping.get("country")));
-        assertThat(shoppingCartPage.get_shipping_postcode(),equalTo(dataShopping.get("postcode")));
+        assertThat(shoppingCartPage.get_shipping_address(), equalTo(dataShopping.get("address")));
+        assertThat(shoppingCartPage.get_shipping_province_country(), equalTo(dataShopping.get("country")));
+        assertThat(shoppingCartPage.get_shipping_postcode(), equalTo(dataShopping.get("postcode")));
+
+        for (String nameProduct : ArrayProducts) {
+            assertThat(shoppingCartPage.is_name_product_presented(nameProduct),equalTo(true));
+
+        }
 
     }
 }

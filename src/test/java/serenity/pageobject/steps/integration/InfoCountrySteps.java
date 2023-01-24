@@ -7,8 +7,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import serenity.pageobject.apis.InfoCountryService;
-import serenity.pageobject.helper.DatabaseHelper;
-import serenity.pageobject.model.yml.UserYml;
 
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.rest.SerenityRest;

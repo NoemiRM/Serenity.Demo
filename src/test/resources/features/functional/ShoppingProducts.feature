@@ -1,6 +1,7 @@
+@Functional
 Feature: User wants to buy products
 
-  @functional
+  @Happy_path
   Scenario: User selects several products
     Given User "Juan Perez" is registered
     When User navigates to women's category page
@@ -26,11 +27,12 @@ Feature: User wants to buy products
       | province  | Alabama       |
       | postcode  | 300           |
     Then everShop page shows information about user's order
-      | fullName  | Juan Perez             |
-      | telephone | 949456567              |
-      | address   | str. 123               |
-      | country   | Alabama, United States |
-      | postcode  | 300,                   |
+      | fullName  | Juan Perez                                                          |
+      | telephone | 949456567                                                           |
+      | address   | str. 123                                                            |
+      | country   | Alabama, United States                                              |
+      | postcode  | 300,                                                                |
+      | products  | Alphaboost shoes,Alphaedge 4d reflective shoes R,Edge gameday shoes |
 
 
 
