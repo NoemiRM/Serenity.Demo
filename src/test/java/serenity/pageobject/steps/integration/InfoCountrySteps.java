@@ -55,4 +55,15 @@ public class InfoCountrySteps {
     public void serviceReturnsOKStatus(int arg0) {
         SerenityRest.then().log().all().statusCode(arg0);
     }
+
+    @Then("User requests to create a new Country")
+    public void userRequestsToCreateANewCountry(DataTable dataTable) {
+        Map<String,String> infoCountry = dataTable.asMap(String.class, String.class);
+
+        InfoCountryService.postCreateCountry(
+                infoCountry.get("name"),
+                infoCountry.get("alpha2Code"),
+                infoCountry.get("alpha3Code"));
+
+    }
 }
